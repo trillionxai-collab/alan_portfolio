@@ -77,8 +77,8 @@ function Nav() {
             <Radio size={14} className="sm:block hidden" />
             <Radio size={12} className="sm:hidden" />
           </span>
-          <span className="hidden sm:inline">Alan S. George</span>
-          <span className="sm:hidden">ASG</span>
+          <span className="hidden sm:inline">Alan Sebastian</span>
+          <span className="sm:hidden">Alan Sebastian</span>
         </a>
         <nav className="hidden gap-4 sm:gap-8 text-xs sm:text-sm text-muted-foreground md:flex">
           <a href="#about" className="hover:text-foreground transition">About</a>
