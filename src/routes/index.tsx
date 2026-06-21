@@ -15,10 +15,10 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import portrait from "@/assets/alan-portrait.jpeg.asset.json";
-import rotary from "@/assets/alan-rotary.jpeg.asset.json";
-import community from "@/assets/alan-community.jpeg.asset.json";
-import gym from "@/assets/alan-gym.jpeg.asset.json";
+import portrait from "@/assets/images/alan-portrait.jpeg";
+import rotary from "@/assets/images/alan-rotary.jpeg";
+import community from "@/assets/images/alan-community.jpeg";
+import gym from "@/assets/images/alan-gym.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,8 +35,8 @@ export const Route = createFileRoute("/")({
         content:
           "Where deep engineering meets multi-disciplinary innovation. WLAN validation, technical curriculum design, and peer-learning ecosystems.",
       },
-      { property: "og:image", content: portrait.url },
-      { name: "twitter:image", content: portrait.url },
+      { property: "og:image", content: portrait },
+      { name: "twitter:image", content: portrait },
     ],
   }),
   component: Portfolio,
@@ -155,7 +155,7 @@ function Hero() {
           <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-signal via-pulse to-ember opacity-70 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-border bg-surface shadow-[var(--shadow-card)]">
             <img
-              src={portrait.url}
+              src={portrait}
               alt="Portrait of Alan Sebastian George"
               className="aspect-[3/4] w-full object-cover"
             />
@@ -217,7 +217,7 @@ function About() {
         >
           <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-ember/40 via-pulse/30 to-signal/30 blur-xl" />
           <div className="relative overflow-hidden rounded-3xl border border-border">
-            <img src={rotary.url} alt="Alan receiving recognition at a Rotary event" className="aspect-[4/5] w-full object-cover" />
+            <img src={rotary} alt="Alan receiving recognition at a Rotary event" className="aspect-[4/5] w-full object-cover" />
           </div>
         </motion.div>
 
@@ -401,9 +401,9 @@ function Services() {
 /* ---------- MOMENTS ---------- */
 function Moments() {
   const items = [
-    { src: community.url, caption: "TinkerHub community — building together." },
-    { src: gym.url, caption: "Discipline off the clock." },
-    { src: rotary.url, caption: "Recognized for community leadership." },
+    { src: community, caption: "TinkerHub community — building together." },
+    { src: gym, caption: "Discipline off the clock." },
+    { src: rotary, caption: "Recognized for community leadership." },
   ];
   return (
     <Section id="moments" eyebrow="Off-screen" title="A few moments.">
