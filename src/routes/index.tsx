@@ -71,14 +71,16 @@ function Portfolio() {
 function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/60">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2 font-display font-bold tracking-tight">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-signal to-pulse text-primary-foreground">
-            <Radio size={16} />
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
+        <a href="#top" className="flex items-center gap-1.5 sm:gap-2 font-display font-bold tracking-tight text-sm sm:text-base">
+          <span className="inline-flex h-7 sm:h-8 w-7 sm:w-8 items-center justify-center rounded-lg bg-gradient-to-br from-signal to-pulse text-primary-foreground">
+            <Radio size={14} className="sm:block hidden" />
+            <Radio size={12} className="sm:hidden" />
           </span>
-          <span>Alan S. George</span>
+          <span className="hidden sm:inline">Alan S. George</span>
+          <span className="sm:hidden">ASG</span>
         </a>
-        <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
+        <nav className="hidden gap-4 sm:gap-8 text-xs sm:text-sm text-muted-foreground md:flex">
           <a href="#about" className="hover:text-foreground transition">About</a>
           <a href="#expertise" className="hover:text-foreground transition">Expertise</a>
           <a href="#services" className="hover:text-foreground transition">Services</a>
@@ -86,9 +88,12 @@ function Nav() {
         </nav>
         <a
           href={`mailto:${EMAIL}`}
-          className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:opacity-90"
+          className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-foreground px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-background transition hover:opacity-90"
         >
-          Hire me <ArrowUpRight size={14} />
+          <span className="hidden sm:inline">Hire me</span>
+          <span className="sm:hidden">Hire</span>
+          <ArrowUpRight size={12} className="sm:block hidden" />
+          <ArrowUpRight size={10} className="sm:hidden" />
         </a>
       </div>
     </header>
@@ -98,27 +103,28 @@ function Nav() {
 /* ---------- HERO ---------- */
 function Hero() {
   return (
-    <section id="top" className="relative pt-32 pb-24 md:pt-44 md:pb-32 bg-hero-aurora">
+    <section id="top" className="relative pt-20 pb-16 sm:pt-32 sm:pb-24 md:pt-44 md:pb-32 bg-hero-aurora">
       {/* signal waves */}
       <SignalWaves />
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1.3fr_1fr] md:items-center">
+      <div className="relative mx-auto grid max-w-6xl gap-8 sm:gap-12 px-4 sm:px-6 md:grid-cols-[1.3fr_1fr] md:items-center">
         <motion.div initial="hidden" animate="show" variants={fadeUp}>
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-2 sm:px-3 py-1 text-[10px] sm:text-xs uppercase tracking-[0.18em] text-muted-foreground">
             <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-signal" />
-            Hardware Validation · Community Builder
+            <span className="hidden xs:inline">Hardware Validation · Community Builder</span>
+            <span className="xs:hidden">Builder & Engineer</span>
           </div>
-          <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.02] md:text-7xl">
+          <h1 className="mt-4 sm:mt-6 font-display text-3xl sm:text-5xl md:text-7xl font-extrabold leading-[1.02]">
             Where deep <span className="text-gradient-signal">engineering</span> meets multi-disciplinary <span className="text-gradient-warm">innovation</span>.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+          <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             I'm Alan Sebastian George — a WLAN / Wi-Fi hardware validation engineer who
             builds learning ecosystems, designs curriculum, and ships things that work
             both in the lab and in the wild.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2 xs:gap-3">
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-signal to-pulse px-6 py-3 font-medium text-primary-foreground shadow-[var(--shadow-glow-signal)] transition hover:scale-[1.02]"
+              className="inline-flex items-center justify-center xs:justify-start gap-2 rounded-full bg-gradient-to-r from-signal to-pulse px-4 xs:px-6 py-3 font-medium text-primary-foreground shadow-[var(--shadow-glow-signal)] transition hover:scale-[1.02] text-sm xs:text-base"
             >
               <Mail size={16} /> Let's talk
             </a>
@@ -126,21 +132,21 @@ function Hero() {
               href={LINKEDIN}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3 font-medium text-foreground transition hover:bg-surface-elevated"
+              className="inline-flex items-center justify-center xs:justify-start gap-2 rounded-full border border-border bg-surface/60 px-4 xs:px-6 py-3 font-medium text-foreground transition hover:bg-surface-elevated text-sm xs:text-base"
             >
               <Linkedin size={16} /> LinkedIn
             </a>
           </div>
 
-          <div className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-border/60 pt-6 text-sm">
+          <div className="mt-8 sm:mt-12 grid max-w-lg grid-cols-3 gap-3 sm:gap-6 border-t border-border/60 pt-4 sm:pt-6 text-xs sm:text-sm">
             {[
               { v: "4+ yrs", l: "WLAN QA" },
               { v: "UN", l: "Millennium Fellow" },
               { v: "Ex-", l: "Synaptics" },
             ].map((s) => (
               <div key={s.l}>
-                <div className="font-display text-2xl font-bold text-foreground">{s.v}</div>
-                <div className="text-muted-foreground">{s.l}</div>
+                <div className="font-display text-lg sm:text-2xl font-bold text-foreground">{s.v}</div>
+                <div className="text-muted-foreground text-xs sm:text-base">{s.l}</div>
               </div>
             ))}
           </div>
@@ -160,10 +166,10 @@ function Hero() {
               className="aspect-[3/4] w-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border bg-surface-elevated/90 px-4 py-3 text-xs backdrop-blur">
-            <div className="flex items-center gap-2 font-medium">
-              <Sparkles size={14} className="text-ember" />
-              Available for consulting
+          <div className="absolute -bottom-2 xs:-bottom-4 -left-2 xs:-left-4 rounded-2xl border border-border bg-surface-elevated/90 px-2 xs:px-4 py-2 xs:py-3 text-[10px] xs:text-xs backdrop-blur">
+            <div className="flex items-center gap-1 xs:gap-2 font-medium">
+              <Sparkles size={12} className="xs:block" />
+              <span>Available for consulting</span>
             </div>
           </div>
         </motion.div>
@@ -207,7 +213,7 @@ function SignalWaves() {
 function About() {
   return (
     <Section id="about" eyebrow="About" title="A builder's mindset — in the lab and beyond.">
-      <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-start">
+      <div className="grid gap-6 sm:gap-10 md:grid-cols-[1fr_1.2fr] md:items-start">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -226,7 +232,7 @@ function About() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="space-y-5 text-lg leading-relaxed text-muted-foreground"
+          className="space-y-3 sm:space-y-5 text-base sm:text-lg leading-relaxed text-muted-foreground"
         >
           <p>
             I'm a dynamic <span className="text-foreground font-medium">Hardware Validation Engineer</span> and
@@ -280,7 +286,7 @@ function Expertise() {
 
   return (
     <Section id="expertise" eyebrow="Expertise" title="Two practices, one mindset.">
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
         {cards.map((c, i) => (
           <motion.div
             key={c.title}
@@ -289,7 +295,7 @@ function Expertise() {
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: i * 0.1 }}
-            className="group relative overflow-hidden rounded-3xl border border-border bg-card p-8"
+            className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-8"
           >
             <div
               className={`absolute -right-20 -top-20 h-60 w-60 rounded-full blur-3xl opacity-40 transition group-hover:opacity-70 ${
@@ -298,20 +304,20 @@ function Expertise() {
             />
             <div className="relative">
               <div
-                className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${
+                className={`inline-flex h-10 sm:h-12 w-10 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl ${
                   c.tone === "signal"
                     ? "bg-signal/15 text-signal"
                     : "bg-ember/15 text-ember"
                 }`}
               >
-                <c.icon size={22} />
+                <c.icon size={18} className="sm:block" />
               </div>
-              <h3 className="mt-5 text-2xl font-bold">{c.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{c.lead}</p>
-              <ul className="mt-6 space-y-3">
+              <h3 className="mt-3 sm:mt-5 text-lg sm:text-2xl font-bold">{c.title}</h3>
+              <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{c.lead}</p>
+              <ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
                 {c.points.map((p) => (
-                  <li key={p} className="flex gap-3 text-sm text-foreground/85">
-                    <Award size={16} className={c.tone === "signal" ? "mt-0.5 text-signal shrink-0" : "mt-0.5 text-ember shrink-0"} />
+                  <li key={p} className="flex gap-2 sm:gap-3 text-xs sm:text-sm text-foreground/85">
+                    <Award size={14} className={`mt-0.5 shrink-0 ${c.tone === "signal" ? "text-signal" : "text-ember"}`} />
                     <span>{p}</span>
                   </li>
                 ))}
@@ -364,7 +370,7 @@ function Services() {
 
   return (
     <Section id="services" eyebrow="Services" title="What I'm offering right now.">
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
@@ -373,17 +379,17 @@ function Services() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: i * 0.1 }}
-            className="group relative flex flex-col rounded-3xl border border-border bg-surface p-7 transition hover:border-signal/50 hover:bg-surface-elevated"
+            className="group relative flex flex-col rounded-2xl sm:rounded-3xl border border-border bg-surface p-5 sm:p-7 transition hover:border-signal/50 hover:bg-surface-elevated"
           >
-            <div className="flex items-center justify-between">
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-signal/20 to-pulse/20 text-foreground">
-                <s.icon size={20} />
+            <div className="flex items-center justify-between gap-2">
+              <div className="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-signal/20 to-pulse/20 text-foreground flex-shrink-0">
+                <s.icon size={18} className="sm:block" />
               </div>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">{s.tag}</span>
+              <span className="text-[10px] xs:text-xs uppercase tracking-widest text-muted-foreground text-right">{s.tag}</span>
             </div>
-            <h3 className="mt-6 text-xl font-bold leading-snug">{s.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{s.copy}</p>
-            <ul className="mt-5 space-y-2 text-sm text-foreground/85">
+            <h3 className="mt-4 sm:mt-6 text-base sm:text-xl font-bold leading-snug">{s.title}</h3>
+            <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{s.copy}</p>
+            <ul className="mt-3 sm:mt-5 space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-foreground/85">
               {s.items.map((it) => (
                 <li key={it} className="flex gap-2">
                   <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-pulse" />
@@ -407,7 +413,7 @@ function Moments() {
   ];
   return (
     <Section id="moments" eyebrow="Off-screen" title="A few moments.">
-      <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid gap-3 sm:gap-5 grid-cols-1 xs:grid-cols-2 md:grid-cols-3">
         {items.map((it, i) => (
           <motion.figure
             key={i}
@@ -416,14 +422,14 @@ function Moments() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: i * 0.08 }}
-            className="group relative overflow-hidden rounded-3xl border border-border bg-card"
+            className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-card"
           >
             <img
               src={it.src}
               alt={it.caption}
               className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105"
             />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent p-5 text-sm">
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent p-3 sm:p-5 text-xs sm:text-sm">
               {it.caption}
             </figcaption>
           </motion.figure>
@@ -441,42 +447,44 @@ function Contact() {
     { icon: ExternalLink, label: "TinkerHub", href: TINKERHUB },
   ];
   return (
-    <section id="contact" className="px-6 py-24 md:py-32">
+    <section id="contact" className="px-4 sm:px-6 py-16 sm:py-24 md:py-32">
       <motion.div
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        className="relative mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-border p-10 md:p-16"
+        className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl sm:rounded-[2.5rem] border border-border p-6 sm:p-10 md:p-16"
       >
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-signal/25 via-pulse/20 to-ember/25" />
         <div className="absolute inset-0 -z-10 bg-background/40" />
         <div className="absolute -right-32 -bottom-32 h-72 w-72 rounded-full bg-pulse/30 blur-3xl" />
 
-        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Get in touch</p>
-        <h2 className="mt-4 font-display text-4xl font-extrabold md:text-6xl">
+        <p className="text-[10px] xs:text-xs uppercase tracking-[0.25em] text-muted-foreground">Get in touch</p>
+        <h2 className="mt-3 sm:mt-4 font-display text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
           Have a wireless problem, a curriculum to build, or a community to grow?
         </h2>
-        <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
+        <p className="mt-3 sm:mt-5 max-w-2xl text-sm sm:text-lg text-muted-foreground leading-relaxed">
           I take on a small number of consulting engagements at a time. Send a note and let's see if we're a fit.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-3">
+        <div className="mt-6 sm:mt-10 flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2 xs:gap-3">
           <a
             href={`mailto:${EMAIL}`}
-            className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-4 font-medium text-background shadow-[var(--shadow-glow-pulse)] transition hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 xs:px-7 py-3 xs:py-4 font-medium text-background shadow-[var(--shadow-glow-pulse)] transition hover:scale-[1.02] text-xs xs:text-base order-2 xs:order-1"
           >
-            <Mail size={18} /> {EMAIL}
+            <Mail size={16} />
+            <span className="hidden xs:inline">{EMAIL}</span>
+            <span className="xs:hidden">Email</span>
           </a>
-          {socials.map((s) => (
+          {socials.map((s, idx) => (
             <a
               key={s.label}
               href={s.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-4 text-sm font-medium backdrop-blur transition hover:bg-surface-elevated"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 xs:px-5 py-3 xs:py-4 text-xs xs:text-sm font-medium backdrop-blur transition hover:bg-surface-elevated order-3"
             >
-              <s.icon size={16} /> {s.label}
+              <s.icon size={14} /> <span className="hidden xs:inline">{s.label}</span>
             </a>
           ))}
         </div>
@@ -488,8 +496,8 @@ function Contact() {
 /* ---------- FOOTER ---------- */
 function Footer() {
   return (
-    <footer className="border-t border-border/60 px-6 py-8 text-sm text-muted-foreground">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+    <footer className="border-t border-border/60 px-4 sm:px-6 py-6 sm:py-8 text-xs sm:text-sm text-muted-foreground">
+      <div className="mx-auto flex max-w-6xl flex-col sm:flex-row flex-wrap items-center justify-between gap-2 sm:gap-3">
         <span>© {new Date().getFullYear()} Alan Sebastian George.</span>
         <span className="font-display tracking-wide">Engineering · Education · Community.</span>
       </div>
@@ -510,16 +518,16 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <section id={id} className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20 md:py-28">
       <motion.div
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.4 }}
-        className="mb-12 max-w-3xl"
+        className="mb-8 sm:mb-12 max-w-3xl"
       >
-        <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{eyebrow}</p>
-        <h2 className="mt-3 font-display text-4xl font-extrabold leading-[1.05] md:text-5xl">{title}</h2>
+        <p className="text-[10px] xs:text-xs uppercase tracking-[0.25em] text-muted-foreground">{eyebrow}</p>
+        <h2 className="mt-2 sm:mt-3 font-display text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.05]">{title}</h2>
       </motion.div>
       {children}
     </section>
