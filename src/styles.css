@@ -1,0 +1,150 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-signal: var(--signal);
+  --color-pulse: var(--pulse);
+  --color-ember: var(--ember);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Deep slate canvas */
+  --background: oklch(0.16 0.025 260);
+  --foreground: oklch(0.97 0.01 250);
+  --surface: oklch(0.20 0.028 260);
+  --surface-elevated: oklch(0.24 0.032 262);
+
+  --card: oklch(0.21 0.030 262);
+  --card-foreground: oklch(0.97 0.01 250);
+  --popover: oklch(0.20 0.028 260);
+  --popover-foreground: oklch(0.97 0.01 250);
+
+  /* Electric cyan = primary (signal) */
+  --primary: oklch(0.82 0.15 195);
+  --primary-foreground: oklch(0.16 0.025 260);
+
+  --secondary: oklch(0.28 0.04 264);
+  --secondary-foreground: oklch(0.97 0.01 250);
+
+  --muted: oklch(0.26 0.03 262);
+  --muted-foreground: oklch(0.72 0.025 255);
+
+  --accent: oklch(0.70 0.22 340);
+  --accent-foreground: oklch(0.16 0.025 260);
+
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.97 0.01 250);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.82 0.15 195);
+
+  /* Brand accents */
+  --signal: oklch(0.82 0.15 195);   /* cyan */
+  --pulse: oklch(0.70 0.22 340);    /* magenta */
+  --ember: oklch(0.78 0.18 55);     /* warm orange */
+
+  --gradient-signal: linear-gradient(135deg, var(--signal), var(--pulse));
+  --gradient-warm: linear-gradient(135deg, var(--ember), var(--pulse));
+  --gradient-hero: radial-gradient(at 20% 20%, oklch(0.82 0.15 195 / 0.25), transparent 50%),
+                   radial-gradient(at 80% 30%, oklch(0.70 0.22 340 / 0.25), transparent 55%),
+                   radial-gradient(at 60% 90%, oklch(0.78 0.18 55 / 0.15), transparent 55%);
+
+  --shadow-glow-signal: 0 20px 60px -20px oklch(0.82 0.15 195 / 0.45);
+  --shadow-glow-pulse: 0 20px 60px -20px oklch(0.70 0.22 340 / 0.45);
+  --shadow-card: 0 10px 30px -10px oklch(0 0 0 / 0.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--pulse);
+    color: var(--background);
+  }
+}
+
+@utility text-gradient-signal {
+  background: var(--gradient-signal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-warm {
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-hero-aurora {
+  background-image: var(--gradient-hero);
+}
+
+@keyframes signal-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -30px); }
+}
