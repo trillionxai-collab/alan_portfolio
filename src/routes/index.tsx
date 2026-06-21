@@ -110,21 +110,21 @@ function Hero() {
         <motion.div initial="hidden" animate="show" variants={fadeUp}>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-2 sm:px-3 py-1 text-[10px] sm:text-xs uppercase tracking-[0.18em] text-muted-foreground">
             <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-signal" />
-            <span className="hidden xs:inline">Hardware Validation · Community Builder</span>
-            <span className="xs:hidden">Builder & Engineer</span>
+            <span className="hidden sm:inline">Hardware Validation · Community Builder</span>
+            <span className="sm:hidden">Engineer & Builder</span>
           </div>
           <h1 className="mt-4 sm:mt-6 font-display text-3xl sm:text-5xl md:text-7xl font-extrabold leading-[1.02]">
             Where deep <span className="text-gradient-signal">engineering</span> meets multi-disciplinary <span className="text-gradient-warm">innovation</span>.
           </h1>
-          <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 sm:mt-6 max-w-full sm:max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             I'm Alan Sebastian George — a WLAN / Wi-Fi hardware validation engineer who
             builds learning ecosystems, designs curriculum, and ships things that work
             both in the lab and in the wild.
           </p>
-          <div className="mt-6 sm:mt-8 flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2 xs:gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex items-center justify-center xs:justify-start gap-2 rounded-full bg-gradient-to-r from-signal to-pulse px-4 xs:px-6 py-3 font-medium text-primary-foreground shadow-[var(--shadow-glow-signal)] transition hover:scale-[1.02] text-sm xs:text-base"
+              className="inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 rounded-full bg-gradient-to-r from-signal to-pulse px-4 sm:px-6 py-3 font-medium text-primary-foreground shadow-[var(--shadow-glow-signal)] transition hover:scale-[1.02] text-sm sm:text-base"
             >
               <Mail size={16} /> Let's talk
             </a>
@@ -132,19 +132,19 @@ function Hero() {
               href={LINKEDIN}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center xs:justify-start gap-2 rounded-full border border-border bg-surface/60 px-4 xs:px-6 py-3 font-medium text-foreground transition hover:bg-surface-elevated text-sm xs:text-base"
+              className="inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 rounded-full border border-border bg-surface/60 px-4 sm:px-6 py-3 font-medium text-foreground transition hover:bg-surface-elevated text-sm sm:text-base"
             >
               <Linkedin size={16} /> LinkedIn
             </a>
           </div>
 
-          <div className="mt-8 sm:mt-12 grid max-w-lg grid-cols-3 gap-3 sm:gap-6 border-t border-border/60 pt-4 sm:pt-6 text-xs sm:text-sm">
+          <div className="mt-8 sm:mt-12 grid max-w-lg grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 border-t border-border/60 pt-4 sm:pt-6 text-xs sm:text-sm">
             {[
               { v: "4+ yrs", l: "WLAN QA" },
               { v: "UN", l: "Millennium Fellow" },
               { v: "Ex-", l: "Synaptics" },
             ].map((s) => (
-              <div key={s.l}>
+              <div key={s.l} className="text-center sm:text-left">
                 <div className="font-display text-lg sm:text-2xl font-bold text-foreground">{s.v}</div>
                 <div className="text-muted-foreground text-xs sm:text-base">{s.l}</div>
               </div>
@@ -166,9 +166,9 @@ function Hero() {
               className="aspect-[3/4] w-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-2 xs:-bottom-4 -left-2 xs:-left-4 rounded-2xl border border-border bg-surface-elevated/90 px-2 xs:px-4 py-2 xs:py-3 text-[10px] xs:text-xs backdrop-blur">
-            <div className="flex items-center gap-1 xs:gap-2 font-medium">
-              <Sparkles size={12} className="xs:block" />
+          <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 rounded-2xl border border-border bg-surface-elevated/90 px-2 sm:px-4 py-2 sm:py-3 text-[10px] sm:text-xs backdrop-blur">
+            <div className="flex items-center gap-1 sm:gap-2 font-medium">
+              <Sparkles size={12} className="sm:block" />
               <span>Available for consulting</span>
             </div>
           </div>
@@ -385,7 +385,7 @@ function Services() {
               <div className="inline-flex h-10 sm:h-11 w-10 sm:w-11 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-signal/20 to-pulse/20 text-foreground flex-shrink-0">
                 <s.icon size={18} className="sm:block" />
               </div>
-              <span className="text-[10px] xs:text-xs uppercase tracking-widest text-muted-foreground text-right">{s.tag}</span>
+              <span className="text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground text-right">{s.tag}</span>
             </div>
             <h3 className="mt-4 sm:mt-6 text-base sm:text-xl font-bold leading-snug">{s.title}</h3>
             <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{s.copy}</p>
@@ -413,7 +413,7 @@ function Moments() {
   ];
   return (
     <Section id="moments" eyebrow="Off-screen" title="A few moments.">
-      <div className="grid gap-3 sm:gap-5 grid-cols-1 xs:grid-cols-2 md:grid-cols-3">
+      <div className="grid gap-3 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {items.map((it, i) => (
           <motion.figure
             key={i}
@@ -459,32 +459,32 @@ function Contact() {
         <div className="absolute inset-0 -z-10 bg-background/40" />
         <div className="absolute -right-32 -bottom-32 h-72 w-72 rounded-full bg-pulse/30 blur-3xl" />
 
-        <p className="text-[10px] xs:text-xs uppercase tracking-[0.25em] text-muted-foreground">Get in touch</p>
-        <h2 className="mt-3 sm:mt-4 font-display text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
+        <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">Get in touch</p>
+        <h2 className="mt-3 sm:mt-4 font-display text-2xl sm:text-4xl md:text-6xl font-extrabold leading-tight">
           Have a wireless problem, a curriculum to build, or a community to grow?
         </h2>
-        <p className="mt-3 sm:mt-5 max-w-2xl text-sm sm:text-lg text-muted-foreground leading-relaxed">
+        <p className="mt-3 sm:mt-5 max-w-full sm:max-w-2xl text-sm sm:text-lg text-muted-foreground leading-relaxed">
           I take on a small number of consulting engagements at a time. Send a note and let's see if we're a fit.
         </p>
 
-        <div className="mt-6 sm:mt-10 flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2 xs:gap-3">
+        <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-stretch gap-2 sm:gap-3">
           <a
             href={`mailto:${EMAIL}`}
-            className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 xs:px-7 py-3 xs:py-4 font-medium text-background shadow-[var(--shadow-glow-pulse)] transition hover:scale-[1.02] text-xs xs:text-base order-2 xs:order-1"
+            className="inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 rounded-full bg-foreground px-4 sm:px-7 py-3 sm:py-4 font-medium text-background shadow-[var(--shadow-glow-pulse)] transition hover:scale-[1.02] text-sm sm:text-base"
           >
             <Mail size={16} />
-            <span className="hidden xs:inline">{EMAIL}</span>
-            <span className="xs:hidden">Email</span>
+            <span className="hidden sm:inline">{EMAIL}</span>
+            <span className="sm:hidden">Email</span>
           </a>
-          {socials.map((s, idx) => (
+          {socials.map((s) => (
             <a
               key={s.label}
               href={s.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 xs:px-5 py-3 xs:py-4 text-xs xs:text-sm font-medium backdrop-blur transition hover:bg-surface-elevated order-3"
+              className="inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 rounded-full border border-border bg-surface/60 px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-sm font-medium backdrop-blur transition hover:bg-surface-elevated"
             >
-              <s.icon size={14} /> <span className="hidden xs:inline">{s.label}</span>
+              <s.icon size={14} /> <span className="hidden sm:inline">{s.label}</span>
             </a>
           ))}
         </div>
@@ -526,8 +526,8 @@ function Section({
         viewport={{ once: true, amount: 0.4 }}
         className="mb-8 sm:mb-12 max-w-3xl"
       >
-        <p className="text-[10px] xs:text-xs uppercase tracking-[0.25em] text-muted-foreground">{eyebrow}</p>
-        <h2 className="mt-2 sm:mt-3 font-display text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.05]">{title}</h2>
+        <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">{eyebrow}</p>
+        <h2 className="mt-2 sm:mt-3 font-display text-2xl sm:text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.05]">{title}</h2>
       </motion.div>
       {children}
     </section>
